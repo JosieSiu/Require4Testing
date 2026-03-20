@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Testdurchführung bestätigt</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Require4Testing</h1>
+</header>
+
+<main>
+
+  <h2>✅ Test erfolgreich dokumentiert</h2>
+
+  <p><strong>Tester:</strong> <span id="tester"></span></p>
+  <p><strong>Testfall:</strong> <span id="testcase"></span></p>
+  <p><strong>Testlauf:</strong> <span id="testrun"></span></p>
+  <p><strong>Ergebnis:</strong> <span id="result"></span></p>
+
+  <p><strong>Datum:</strong> <span id="date"></span></p>
+  <p><strong>Uhrzeit:</strong> <span id="time"></span></p>
+
+  <br>
+
+  <a href="index.html">Zurück zur Startseite</a>
+
+</main>
+
+<footer>
+  <p>© 2026 Require4Testing</p>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  document.getElementById("tester").innerText = params.get("tester");
+  document.getElementById("testcase").innerText = params.get("testcase");
+  document.getElementById("testrun").innerText = params.get("testrun");
+  document.getElementById("result").innerText = params.get("result");
+
+  const now = new Date();
+
+  document.getElementById("date").innerText =
+    now.toLocaleDateString("de-DE");
+
+  document.getElementById("time").innerText =
+    now.toLocaleTimeString("de-DE");
+</script>
+
+</body>
+</html>
