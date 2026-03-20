@@ -1,32 +1,79 @@
-<h2>Test durchführen</h2>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Test durchführen</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
-<label>Tester</label>
-<input type="text">
+<header>
+  <div class="header-inner">
+    <h1>Require4Testing</h1>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="testcase.html">Testfälle</a>
+      <a href="testrun.html">Testläufe</a>
+      <a href="testexecution.html">Test durchführen</a>
+    </nav>
+  </div>
+</header>
 
-<label>Testfall auswählen</label>
-<select>
-  <option>Testfall 1</option>
-</select>
+<main>
+  <section class="form-section">
 
-<label>Testlauf auswählen</label>
-<select>
-  <option>Testlauf 1</option>
-</select>
+    <h2>🧪 Test durchführen</h2>
 
-<label>Ergebnis</label>
-<select>
-  <option>PASS</option>
-  <option>FAIL</option>
-</select>
+    <label>Tester:in</label>
+    <input type="text" id="tester" placeholder="Name eingeben">
 
-<button onclick="window.location.href='confirmation.html'">
-  Speichern
-</button>
+    <label>Testfall</label>
+    <select id="testcase">
+      <option>Login Test</option>
+      <option>Registrierung Test</option>
+    </select>
+
+    <label>Testlauf</label>
+    <select id="testrun">
+      <option>Release 1.0</option>
+      <option>Hotfix Tests</option>
+    </select>
+
+    <label>Ergebnis</label>
+    <select id="result">
+      <option value="PASS">PASS</option>
+      <option value="FAIL">FAIL</option>
+    </select>
+
+    <button onclick="submitTest()">Speichern</button>
+
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Require4Testing</p>
+</footer>
 
 <script>
 function submitTest() {
-  window.location.href = "confirmation.html";
+
+  const tester = document.getElementById("tester").value;
+  const testcase = document.getElementById("testcase").value;
+  const testrun = document.getElementById("testrun").value;
+  const result = document.getElementById("result").value;
+
+  if(!tester){
+    alert("Bitte Tester eingeben!");
+    return;
+  }
+
+  window.location.href =
+    "confirmation.html?tester=" + tester +
+    "&testcase=" + testcase +
+    "&testrun=" + testrun +
+    "&result=" + result;
 }
 </script>
 
-<button onclick="submitTest()">Speichern</button>
+</body>
+</html>
