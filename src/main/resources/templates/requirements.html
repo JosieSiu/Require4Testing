@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Require4Testing</title>
+</head>
+<body>
+
+<h1>Anforderungen</h1>
+
+<form action="/add" method="post">
+    Titel: <input type="text" name="title"><br>
+    Beschreibung: <input type="text" name="description"><br>
+    <button type="submit">Speichern</button>
+</form>
+
+<hr>
+
+<ul>
+    <li th:each="r : ${requirements}">
+        <span th:text="${r.title}"></span>
+    </li>
+</ul>
+
+</body>
+</html>
